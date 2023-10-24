@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+
+{% block encabezado %}
+    {% include "asistente/encabezadoAsis.html" %}
+{% endblock %}
+
+{% block menu %}
+    {% include "asistente/menuAsis.html" %}
+{% endblock %}
+
+{% block contenido %}
+    {% load static %}
+    <br>
+    <h3 class="text-center fw-bolds text-center"><strong>MÓDULO ASISTENTE</strong></h3>
+    <br>
+    <div class="container imgOptions">
+        <div class="row">
+          <div class="col text-center">
+            <div class="imgRedonda">
+                <a href="/vistaGestionarDevolutivos">
+                    <img src="{% static 'images/gesElementos.jpeg' %}" alt="Imagen redonda" >
+                </a>
+            </div>
+            <strong><p>Gestionar Elementos Devolutivos</p></strong> 
+          </div>
+
+          <div class="col text-center">
+            <div class="imgRedonda">
+                <a href="/vistaRegistrarMaterial">
+                    <img src="{% static 'images/gesElementos.jpeg' %}" alt="Imagen redonda" >
+                </a>
+            </div>
+            <strong><p>Registrar Material</p></strong> 
+          </div>
+
+          <div class="col text-center">
+            <div class="imgRedonda">
+                <a href="/vistaEntradaMaterial">
+                    <img src="{% static 'images/gesElementos.jpeg' %}" alt="Imagen redonda" >
+                </a>
+            </div>
+            <strong><p>Entrada Material</p></strong> 
+          </div>
+
+          <div class="col text-center">
+            <div class="imgRedonda" style="border: 10px solid rgb(0, 229, 255);">
+              <img src="{% static '/images/gesSolicitud.jpg' %}" alt="Imagen redonda">
+            </div>
+            <strong><p>Gestionar Solicitudes</p></strong>
+          </div>
+
+          <div class="col text-center">
+            <div class="imgRedonda" style="border: 10px solid rgb(48, 49, 120);" >
+              <img src="{% static 'images/reportes.jpg' %}" alt="Imagen redonda">
+            </div>
+            <strong><p>Reportes</p></strong>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+{% endblock %}
+
+{% block piedepagina %}
+    {% include "piedepagina.html" %}
+{% endblock %}

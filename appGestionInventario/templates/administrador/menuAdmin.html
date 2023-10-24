@@ -1,0 +1,30 @@
+{% load static %}
+<div class="container-fluid menuAdmin" style="background-color: rgb(0, 160, 0); border-radius: 10px;">
+  <nav class="navbar navbar-expand ">
+      <!-- Links -->
+      <ul class="navbar-nav" >
+          
+            <div class="iconoAdmin">
+                <a href="/inicioAdmin">
+                    <img src="{% static 'images/gesUsuario.jpg' %}" alt="Imagen redonda" >
+                </a>
+            </div>
+          
+          <li class="nav-item">
+              <a class="nav-link" style="color: rgb(200, 200, 200);" href='/inicioAdmin'>Administrador</a>
+          </li>
+          
+          <li class="nav-item">
+              <a class="nav-link" style="color: rgb(200, 200, 200);" href="/vistaGestionarUsuarios">Gestionar Usuarios</a>
+          </li>
+          
+          <li class="nav-item">
+              <a class="nav-link" style="color: rgb(200, 200, 200);" href="/inicioAdmin">Gestionar Solicitudes</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" style="color: rgb(200, 200, 200);" href="/ ">Salir</a>
+          </li>
+      </ul>
+  </nav>
+</div>

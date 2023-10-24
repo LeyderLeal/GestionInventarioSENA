@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block encabezado %}
+    {% include "administrador/encabezadoAdmin.html" %}
+{% endblock %}
+
+{% block menu %}
+    {% include 'administrador/menuAdmin.html'%}
+{% endblock %}
+{% block contenido %}
+<div class="container mt-3 text-center">
+    <h2>lista de usuarios registrados</h2>
+    <a href="/vistaRegistrarUsuario/" class="btn btn-rounded-pill fw-bold text-white" style="letter-spacing: 2px; background-color: rgb(0, 160, 0);">Agregar</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo</th>
+          <th>Tipo de Usuario</th>
+          <th>Foto</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for usuario in lista_usuarios %}
+        <tr>
+          <td>{{ usuario.first_name }}</td>
+          <td>{{ usuario.last_name }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.userTipo }}</td>
+         
+        </tr>
+        {% endfor %}
+      </tbody>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+  <br>
+{% endblock %}
+{% block piedepagina %}
+    {% include "piedepagina.html" %}
+{% endblock %}

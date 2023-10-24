@@ -1,0 +1,157 @@
+{% extends "index.html" %}
+
+{% block encabezado %}
+    {% include "asistente/encabezadoAsis.html" %}
+{% endblock %}
+
+{% block menu %}
+    {% include 'asistente/menuAsis.html'%}
+{% endblock %}
+{% block contenido %}
+<div class="container frmProducto">
+    <div class="row d-flex justify-content-center align-items-center ">
+        <div class="col-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                    <h3 class="mb-5 fw-bold">REGISTRAR ELEMENTOS DEVOLUTIVOS</h3>
+                    <hr>
+                    <form action="/registrarDevolutivo/" method="post" enctype="multipart/form-data" class="was-validated">
+
+                        {% csrf_token %}
+                        <!--Tipo de Elemento-->
+                        <div class="form-floating mb-4">
+                            <select class="form-select" id="cbTipoElementos" name="cbTipoElementos" required style="border-radius: 27px;">
+                                <option value="">Select</option>
+                                {% for tipoE in tipoElementos %}
+                                    <option value="{{ tipoE.0 }}">{{ tipoE.1 }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="cbTipoElementos" class="form-label">Tipo Elemento</label>
+                        </div>
+
+                        <!--Fecha inventario sena-->
+                        <div class="form-floating mb-4">
+                            <input type="date" name="txtFecha" id="txtFecha" class="form-control" placeholder="Fecha Inventario"  style="border-radius: 27px;" required>
+                            <label for="txtFecha">Fecha Inventario Sena</label>
+                        </div>  
+
+                        <!--Placa Sena-->
+                        <div class="form-floating mb-4">
+                            <input type="number" name="txtPlaca" id="txtPlaca" class="form-control" style="border-radius: 27px;" required>
+                            <label for="txtPlaca">Placa Sena</label>
+                        </div> 
+                        
+                        <!--Serial-->
+                        <div class="form-floating mb-4">
+                            <input type="text" name="txtSerial" id="txtSerial" class="form-control" style="border-radius: 27px;" required>
+                            <label for="txtSerial">Serial</label>
+                        </div>  
+
+                        <!--Marca-->
+                        <div class="form-floating mb-4">
+                            <input type="text" name="txtMarca" id="txtMarca" class="form-control" style="border-radius: 27px;" required>
+                            <label for="txtMarca">Marca</label>
+                        </div> 
+
+                        <!--Valor Unitario-->
+                        <div class="form-floating mb-4">
+                            <input type="number" name="txtValorUnitario" id="txtValorUnitario" class="form-control" style="border-radius: 27px;" required>
+                            <label for="txtValorUnitario">Valor Unitario</label>
+                        </div> 
+                        
+                        <!--Estado-->
+                        <div class="form-floating mb-4">
+                            <select class="form-select" id="cbEstado" name="cbEstado" required style="border-radius: 27px;">
+                                <option value="">Select</option>
+                                {% for estado in estados %}
+                                    <option value="{{ estado.0 }}">{{ estado.1 }}</option>
+                                {% endfor %}
+                            </select>
+                            <label for="cbEstado" class="form-label">Estados</label>
+                        </div>
+
+                        <!--Nombre-->
+                        <div class="form-floating mb-4">
+                            <input type="text" name="txtNombre" id="txtNombre" class="form-control" style="border-radius: 27px;" required>
+                            <label for="txtNombre">Nombre Elemento</label>
+                        </div> 
+
+                        <!--Descripcion-->
+                        <div class="form-floating mb-4">
+                            <textarea name="txtDescripcion" id="txtDescripcion" class="form-control" placeholder="Description" style="border-radius: 27px;" required></textarea>
+                            <label for="txtDescripcion">Descripción</label>
+                          </div>
+                        <!--<div class="g-recaptcha" data-sitekey="6LeC-OQlAAAAACcABo3n-cDeV9CVWargDDjtY12V"></div>-->
+                    
+                        
+                        <h3 class="mb-5 fw-bold">UBICACION</h3>
+
+                        <!--Deposito-->
+                        <div class="form-floating mb-4">
+                            <select class="form-select" id="cbDeposito" name="cbDeposito" required style="border-radius: 27px;">
+                                <option value=""></option>
+                                <option value="1" name="Administrador">1</option>
+                                <option value="2" name="Asistente">2</option>
+                                <option value="3" name="Instructor">3</option>
+                            </select>
+                            <label for="cbDeposito" class="form-label">Deposito</label>
+                        </div>
+
+                        <!--Estante-->
+                        <div class="form-floating mb-4">
+                            <input type="number" name="txtEstante" id="txtEstante" class="form-control" style="border-radius: 27px;" required>
+                            <label for="txtEstante">Estante</label>
+                        </div> 
+
+                        <!--Entrepaños-->
+                        <div class="form-floating mb-4">
+                            <input type="number" name="txtEntrepano" id="txtEntrepano" class="form-control" style="border-radius: 27px;" required>
+                            <label for="txtEntrepano">Entrepaños</label>
+                        </div> 
+
+                        <!--Locker-->
+                        <div class="form-floating mb-4">
+                            <input type="number" name="txtLocker" id="txtLocker" class="form-control" style="border-radius: 27px;" required>
+                            <label for="txtLocker">Locker</label>
+                        </div> 
+
+                        <!--Foto-->
+                        <div class="form-floating mb-4">
+                            <input type="file" name="fileFoto" id="fileFoto" class="form-control" style="border-radius: 27px;">
+                            <label for="fileFoto">Upload Photo</label>
+                        </div>
+                        <hr>
+
+                        <div class="mt-5">
+                            <button class="btn btn-success rounded-pill mb-2 fw-bold" style="letter-spacing: 2px;">Registrar</button>
+                            <button class="btn btn-success rounded-pill mb-2 fw-bold" style="letter-spacing: 2px;">Cancelar</button>
+
+                        </div>
+
+
+                    </form>
+
+
+                    <div>
+                        {% if mensaje %}
+                            {% if estado %}
+                                <script>
+                                    Swal.fire("AGREGAR PRODUCTO", '{{mensaje}}', "success")
+                                </script>
+                            {% else %}
+                                <script>
+                                    Swal.fire("AGREGAR PRODUCTO", '{{mensaje}}', "warning")
+                                </script>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block piedepagina %}
+    {% include "piedepagina.html" %}
+{% endblock %}

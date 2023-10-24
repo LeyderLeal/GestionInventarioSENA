@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block encabezado %}
+    {% include "administrador/encabezadoAdmin.html" %}
+{% endblock %}
+
+{% block menu %}
+    {% include "administrador/menuAdmin.html" %}
+{% endblock %}
+
+{% block contenido %}
+    {% load static %}
+    <br>
+    <h3 class="text-center fw-bolds text-center"><strong>MÓDULO ADMINISTRADOR</strong></h3>
+    <br>
+    <div class="container imgOptions">
+        <div class="row">
+          <div class="col text-center">
+            <div class="imgRedonda" style="border: 10px solid rgb(0, 160, 0);">
+                <a href="/vistaGestionarUsuarios">
+                    <img src="{% static 'images/gesUsuario.jpg' %}" alt="Imagen redonda" >
+                </a>
+            </div>
+            <strong><p>Gestionar Usuarios</p></strong> 
+          </div>
+          <div class="col text-center">
+            <div class="imgRedonda" style="border: 10px solid rgb(0, 229, 255);">
+              <img src="{% static '/images/gesSolicitud.jpg' %}" alt="Imagen redonda">
+            </div>
+            <strong><p>Gestionar Solicitudes</p></strong>
+          </div>
+          <div class="col text-center">
+            <div class="imgRedonda" style="border: 10px solid rgb(48, 49, 120);" >
+              <img src="{% static 'images/reportes.jpg' %}" alt="Imagen redonda">
+            </div>
+            <strong><p>Reportes</p></strong>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+{% endblock %}
+
+{% block piedepagina %}
+    {% include "piedepagina.html" %}
+{% endblock %}

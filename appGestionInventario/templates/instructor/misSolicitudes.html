@@ -1,0 +1,38 @@
+<script src="{%static '../static/js/solicitud.js' %}"></script>
+{% for solicitud in solicitudes %}
+<script> cargarSolicitudes("{{solicitud.id}}","{{solicitud.solEstado}}");</script>
+{% endfor %}
+
+<div class="table-responsive" style="margin: 0 auto">
+    <h2 Class="text-center fw-bold" style="font-size:6vh">MIS SOLICITUDES</h2>
+    <a href="/vistaRegistrarSolicitud/"><button class="btn btn-secondary mb-2">Agregar</button></a>
+    <table id="tblSolicitudes" class="mt-3 table table-bordered">
+        <thead>
+            <tr class="text-center bg-secondary text-white">
+                <th>Ficha<th>
+                <th>Programa</th>
+                <th>Proyecto</th>
+                <th>Fecha Requerida</th>
+                <th>Estado</th>
+                <th>Ver Detalle</th> |
+            </tr>
+        </thead>
+        <tbody>
+            {% for solicitud in solicitudes %}
+                <tr>
+                    <td>{{solicitud.solFicha.ficCodigo}}</td>
+                    <td>{{solicitud.solFicha.ficNombre}}</td>
+                    <td>{{solicitud.solProyecto}}</td>
+                    <td class="text-center">{{solicitud.solFechaHoraRequerida}}</td>
+                    <td class="text-center">{{solicitud.solEstado}}</td>
+                    <td class="text-center">
+                        <i class="fa fa-edit" onclick="abrirModalDetalleMisSolicitudes('{{solicitud.id}}')"></i>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script> 
+    cargarDataTable( $("#tblSolicitudes"), "Mis Solicitudes",5)
+</script>

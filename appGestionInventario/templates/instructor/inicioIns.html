@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block encabezado %}
+    {% include "instructor/encabezadoIns.html" %}
+{% endblock %}
+
+{% block menu %}
+    {% include "instructor/menuIns.html" %}
+{% endblock %}
+
+{% block contenido %}
+    {% load static %}
+    <br>
+    <h3 class="text-center fw-bolds text-center"><strong>MÓDULO INSTRUCTOR</strong></h3>
+    <br>
+    <div class="container imgOptions">
+        <div class="row">
+          <div class="col text-center">
+            <a href="/inicioIns">
+                <div class="imgRedonda" style="border: 10px solid rgb(0, 229, 255);">
+                    <img src="{% static '/images/gesSolicitud.jpg' %}" alt="Imagen redonda">
+                </div>
+            </a>
+            <strong><p>Gestionar Mis Solicitudes</p></strong>
+          </div>
+          <div class="col text-center">
+            <a href="/inicioIns">
+                <div class="imgRedonda">
+                    <img src="{% static 'images/editarDatos.jpeg' %}" alt="Imagen redonda">
+                </div>
+            </a>
+            <strong><p>Actualizar Mis Datos</p></strong>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+{% endblock %}
+
+{% block piedepagina %}
+    {% include "piedepagina.html" %}
+{% endblock %}

@@ -1,0 +1,27 @@
+<script src="{%static '../static/js/solicitud.js'%}"></script>
+<br>
+{% for elemento in elementos %}
+<script> cargarElementos("{{elemento.id}}","{{elemento.eleCodigo}}",
+    "{{elemento.eleNombre}}");</script>
+{% endfor %}
+
+{% for unidad in unidadesMedida %}
+<script> cargarUnidadesMedida("{{unidad.id}}","{{unidad.uniNombre}}");</script>
+{% endfor %}
+
+<div id="vistaTablaMateriales w-75 tabla-responsive" style="margin: 0 auto">
+    <table class="table table-bordered table-stripped">
+        <thead>
+            <tr class="bg-secondary text-white text-center">
+                <th>Código</th>
+                <th>Elemento</th>
+                <th>Cantidad</th>
+                <th>Unidad Medida</th>
+            <tr>
+            </thead>
+            <tbody id="datosTablaElementos">
+            
+            </tbody>
+    </table>
+    
+</div>
